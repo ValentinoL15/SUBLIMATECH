@@ -1,5 +1,5 @@
 import pandas as pd
-from src.utils.formatters import quitar_espacios_str,rellenar_fechas_nulas
+from src.utils.formatters import quitar_espacios_str,rellenar_fechas_nulas, modificar_tipo_horarios,rellenar_horarios_nulos
 
 
 def transform_sales(dataframe: pd.DataFrame) -> pd.DataFrame:
@@ -19,11 +19,12 @@ def transform_sales(dataframe: pd.DataFrame) -> pd.DataFrame:
   df.loc[df['ingreso_total'] < 0, 'ingreso_total'] = df['ingreso_total'] * -1
   
   # 4. Transformar horarios en timedelta
-  df['horario'] = pd.to_timedelta(df['horario'], errors='coerce')
+  modificar_tipo_horarios(df,['horario'])
   
   # 5. Rellenar dechas y horarios nulos
   rellenar_fechas_nulas(df, ['fecha_compra', 'fecha_de_compra'])
-  df['horario'] = df['horario'].fillna(pd.to_timedelta('00:00:00'))
+  rellenar_horarios_nulos(df,['horario'])
+
   
   # 6. Eliminar duplicados
   df.drop_duplicates()

@@ -27,7 +27,17 @@ def transform_production(dataframe: pd.DataFrame) -> pd.DataFrame:
   # 5. Completar los nombres nulos en 'Desconocido'
   df['operador'] = df['operador'].fillna('Desconocido')
   
-  # 6. Borrar duplicados
+  
+  # 6. Normalizar los pedidos que no vienen con ORD- al principio 
+  df['pedido_ref'] = df['pedido_ref'].str.strip().str.upper()
+
+  mascara = df['pedido_ref'].str.startswith('ORD')
+
+  df[~mascara]
+
+  df.loc[~mascara, 'pedido_ref'] = "ORD-" + df['pedido_ref']
+  
+  # 7. Borrar duplicados
   df.drop_duplicates()
   
   return df
