@@ -3,7 +3,7 @@ name: Trigger Action on a CRON Schedule
 on:
   schedule:
     # Ejecución todos los dias de lunes a viernes a las 12:00 (Hora Argentina / 15:00 UTC)
-    - cron: '45 16 * * 1-5'
+    - cron: '58 16 * * 1-5'
   workflow_dispatch: # Activa el botón de ejecución manual en la pestaña Actions
 
 jobs:
@@ -26,7 +26,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install -r src/requirements.txt
 
       # 4. Ejecuta tu script ETL
       - name: Run ETL Script
