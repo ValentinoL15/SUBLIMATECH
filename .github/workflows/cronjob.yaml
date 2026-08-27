@@ -1,16 +1,34 @@
 name: Trigger Action on a CRON Schedule
 
-on: 
-  push:
-    brnaches:
-      - main
+on:
   schedule:
-    # Ejecución todos los dias de lunes a viernes a las 12
-    - cron: '0 15 * * 1-5'
-  workflow_dispatch: # Activa el botón de ejecución manual
+    # Ejecución todos los dias de lunes a viernes a las 12:00 (Hora Argentina / 15:00 UTC)
+    - cron: '45 16 * * 1-5'
+  workflow_dispatch: # Activa el botón de ejecución manual en la pestaña Actions
+
 jobs:
   build:
     name: Trigger ETL
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      # 1. Trae el código del repositorio
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # 2. Instala Python con caché para agilizar la ejecución diaria
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12.1'
+          cache: 'pip'
+
+      # 3. Instala las dependencias necesarias
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # 4. Ejecuta tu script ETL
+      - name: Run ETL Script
+        run: |
+          python main.py
