@@ -1,0 +1,12 @@
+name: Trigger Action on a CRON Schedule
+
+on: 
+  schedule:
+    # Ejecución todos los dias de lunes a viernes a las 12
+    - cron: '0 15 * * 1-5'
+jobs:
+  build:
+    name: Trigger ETL
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
