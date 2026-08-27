@@ -1,5 +1,11 @@
 import pandas as pd
-from src.utils.formatters import quitar_espacios_str,rellenar_fechas_nulas, modificar_tipo_horarios,rellenar_horarios_nulos
+
+from src.utils.formatters import (
+  modificar_tipo_horarios,
+  quitar_espacios_str,
+  rellenar_fechas_nulas,
+  rellenar_horarios_nulos,
+)
 
 
 def transform_sales(dataframe: pd.DataFrame) -> pd.DataFrame:

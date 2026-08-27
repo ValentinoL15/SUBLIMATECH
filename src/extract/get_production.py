@@ -1,5 +1,7 @@
-import pandas as pd
 import json
+
+import pandas as pd
+
 
 def extract_production() -> pd.DataFrame:
     with open('data/raw/production/produccion_taller.json', 'r', encoding='UTF-8') as archivo:

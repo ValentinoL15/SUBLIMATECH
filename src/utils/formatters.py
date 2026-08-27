@@ -1,5 +1,7 @@
-import pandas as pd
 import datetime as dt
+
+import pandas as pd
+
 
 # Cambiamos el tipo de retorno de None a pd.DataFrame
 def quitar_espacios_str(df: pd.DataFrame) -> pd.DataFrame:

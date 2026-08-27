@@ -1,5 +1,11 @@
 import pandas as pd
-from src.utils.formatters import quitar_espacios_str, modificar_tipo_fecha, modificar_tipo_horarios
+
+from src.utils.formatters import (
+  modificar_tipo_fecha,
+  modificar_tipo_horarios,
+  quitar_espacios_str,
+)
+
 
 def transform_production(dataframe: pd.DataFrame) -> pd.DataFrame:
   print(f'Leyendo dataframe {dataframe}')

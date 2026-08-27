@@ -4,21 +4,21 @@ Tests para src/utils/formatters.py y src/transform/transform_*.py
 Ubicación sugerida en el repo: tests/test_formatters_and_transform.py
 """
 import datetime as dt
+
 import pandas as pd
 
-from src.utils.formatters import (
-    quitar_espacios_str,
-    rellenar_fechas_nulas,
-    rellenar_horarios_nulos,
-    modificar_tipo_fecha,
-    modificar_tipo_horarios,
-    reemplazar_valores,
-)
 from src.transform.transform_logistics import transform_logistics
 from src.transform.transform_production import transform_production
 from src.transform.transform_sales import transform_sales
- 
- 
+from src.utils.formatters import (
+    modificar_tipo_fecha,
+    modificar_tipo_horarios,
+    quitar_espacios_str,
+    reemplazar_valores,
+    rellenar_fechas_nulas,
+    rellenar_horarios_nulos,
+)
+
 # ---------------------------------------------------------------------------
 # formatters.quitar_espacios_str
 # ---------------------------------------------------------------------------

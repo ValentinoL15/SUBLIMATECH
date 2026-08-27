@@ -1,10 +1,10 @@
-import pandas as pd
-from src.transform import transform_sales, transform_production, transform_logistics
-from src.extract import extract_sales, extract_production, extract_logistics
+from src.extract import extract_logistics, extract_production, extract_sales
 from src.load.sql_loader import cargar_a_stg
+from src.transform import transform_logistics, transform_production, transform_sales
+
 
 def ejecutar_pipline_sublimatech():
-  print(f"--- 🔄 Procesando pipline... ---")
+  print("--- 🔄 Procesando pipline... ---")
   
   # 1. Extracción de dataframes
   print("Extrayendo datos...")

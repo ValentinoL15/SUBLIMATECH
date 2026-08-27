@@ -1,5 +1,7 @@
 import pandas as pd
+
 from src.config.database import engine
+
 
 def cargar_a_stg(df: pd.DataFrame, nombre_tabla: str):
     """Carga un DataFrame directamente al entorno de Staging en SQL Server."""
