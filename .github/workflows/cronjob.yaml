@@ -1,9 +1,13 @@
 name: Trigger Action on a CRON Schedule
 
 on: 
+  push:
+    brnaches:
+      - main
   schedule:
     # Ejecución todos los dias de lunes a viernes a las 12
     - cron: '0 15 * * 1-5'
+  workflow_dispatch: # Activa el botón de ejecución manual
 jobs:
   build:
     name: Trigger ETL
