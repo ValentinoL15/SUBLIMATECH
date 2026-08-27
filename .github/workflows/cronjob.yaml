@@ -31,4 +31,4 @@ jobs:
       # 4. Ejecuta tu script ETL
       - name: Run ETL Script
         run: |
-          python src/main.py
+          python -m src.main
