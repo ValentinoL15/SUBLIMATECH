@@ -22,5 +22,5 @@ def modificar_tipo_horarios(df: pd.DataFrame, cols: list):
   for col in cols:
     df[col] = pd.to_datetime(df[col], format='mixed', errors='coerce').dt.time
     
-def reemplazar_valores(df: pd.DataFrame, col: str ,words_to_replace: list[str], to: str) -> None:
+def reemplazar_valores(df: pd.DataFrame, col: str ,words_to_replace: list, to: str) -> None:
   df[col] = df[col].replace(words_to_replace,to, regex=False)
