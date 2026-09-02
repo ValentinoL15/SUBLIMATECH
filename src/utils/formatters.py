@@ -18,7 +18,7 @@ def rellenar_horarios_nulos(df: pd.DataFrame, cols: list ) -> None:
     
 def modificar_tipo_fecha(df: pd.DataFrame, cols: list) -> None:
   for col in cols:
-    df[col] = pd.to_datetime(df[col], format='mixed', dayfirst=True, errors='coerce')
+    df[col] = pd.to_datetime(df[col], format='mixed', errors='coerce')
     
 def modificar_tipo_horarios(df: pd.DataFrame, cols: list):
   for col in cols:
