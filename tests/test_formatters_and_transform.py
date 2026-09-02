@@ -75,11 +75,13 @@ def test_reemplazar_valores_no_afecta_valores_no_listados():
 # ---------------------------------------------------------------------------
  
 def test_modificar_tipo_fecha_convierte_a_datetime():
-    df = pd.DataFrame({'fecha': ['05/01/2024', '20/03/2024']})
+    df = pd.DataFrame({'fecha': ['05/01/2024', '03/20/2024']})
+
     modificar_tipo_fecha(df, ['fecha'])
+
     assert pd.api.types.is_datetime64_any_dtype(df['fecha'])
-    # dayfirst=True -> 05/01/2024 es 5 de enero
-    assert df['fecha'].iloc[0] == pd.Timestamp('2024-01-05')
+    # dayfirst=False -> 05/01/2024 es 1 de mayo
+    assert df['fecha'].iloc[0] == pd.Timestamp('2024-05-01')
  
  
 def test_modificar_tipo_fecha_valor_invalido_es_nat():
